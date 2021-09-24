@@ -1,6 +1,7 @@
 import * as C from '@chakra-ui/react';
 import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 import Header from '../../components/Header';
+import Pagination from '../../components/Pagination';
 import Sidebar from '../../components/Sidebar';
 
 export default function UserList(): React.ReactElement {
@@ -63,6 +64,7 @@ export default function UserList(): React.ReactElement {
               </C.Tr>
             </C.Tbody>
           </C.Table>
+          <Pagination />
         </C.Box>
       </C.Flex>
     </C.Box>
