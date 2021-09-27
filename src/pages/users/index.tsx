@@ -5,6 +5,10 @@ import Pagination from '../../components/Pagination';
 import Sidebar from '../../components/Sidebar';
 
 export default function UserList(): React.ReactElement {
+  const isWideVersion = C.useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <C.Box>
       <Header />
@@ -28,17 +32,17 @@ export default function UserList(): React.ReactElement {
           <C.Table colorScheme="whiteAlpha">
             <C.Thead>
               <C.Tr>
-                <C.Th px="6" color="gray.300" widht="8">
+                <C.Th px={['4', '4', '6']} color="gray.300" widht="8">
                   <C.Checkbox colorScheme="pink" />
                 </C.Th>
                 <C.Th>Usuário</C.Th>
-                <C.Th>Data de cadastro</C.Th>
-                <C.Th width="8" />
+                {isWideVersion && <C.Th>Data de cadastro</C.Th>}
+                {isWideVersion && <C.Th width="8" />}
               </C.Tr>
             </C.Thead>
             <C.Tbody>
               <C.Tr>
-                <C.Td px="6">
+                <C.Td px={['4', '4', '6']}>
                   <C.Checkbox colorScheme="pink" />
                 </C.Td>
                 <C.Td>
@@ -49,18 +53,20 @@ export default function UserList(): React.ReactElement {
                     </C.Text>
                   </C.Box>
                 </C.Td>
-                <C.Td>04 de Dez, 2021</C.Td>
-                <C.Td>
-                  <C.Button
-                    as="a"
-                    size="sm"
-                    colorScheme="pink"
-                    leftIcon={<C.Icon as={RiPencilLine} />}
-                    fontSize="16"
-                  >
-                    Editar
-                  </C.Button>
-                </C.Td>
+                {isWideVersion && <C.Td>04 de Dez, 2021</C.Td>}
+                {isWideVersion && (
+                  <C.Td>
+                    <C.Button
+                      as="a"
+                      size="sm"
+                      colorScheme="pink"
+                      leftIcon={<C.Icon as={RiPencilLine} />}
+                      fontSize="16"
+                    >
+                      Editar
+                    </C.Button>
+                  </C.Td>
+                )}
               </C.Tr>
             </C.Tbody>
           </C.Table>

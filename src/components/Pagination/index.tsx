@@ -3,7 +3,13 @@ import PaginationItem from './PaginationItem';
 
 export default function Pagination(): React.ReactElement {
   return (
-    <C.HStack mt="8" justify="space-between" align="center" spacing="6">
+    <C.Stack
+      direction={['column', 'row']}
+      mt="8"
+      justify="space-between"
+      align="center"
+      spacing="6"
+    >
       <C.Box>
         <strong>0</strong> - <strong>10</strong> de <strong>100</strong>
       </C.Box>
@@ -14,6 +20,6 @@ export default function Pagination(): React.ReactElement {
         <PaginationItem number={4} />
         <PaginationItem number={5} />
       </C.HStack>
-    </C.HStack>
+    </C.Stack>
   );
 }

@@ -69,13 +69,13 @@ export default function Dashboard(): React.ReactElement {
       <C.Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
         <Sidebar />
         <C.SimpleGrid flex="1" gap="4" minChildWidth="320px" align="flex-start">
-          <C.Box p="8" bg="gray.800" pb="4" borderRadius={8}>
+          <C.Box p={['6', '8']} bg="gray.800" pb="4" borderRadius={8}>
             <C.Text fontSize="lg" mb="4">
               Inscritos da semana
             </C.Text>
             <Chart options={options} series={series} type="area" height={160} />
           </C.Box>
-          <C.Box p="8" bg="gray.800" pb="4" borderRadius={8}>
+          <C.Box p={['6', '8']} bg="gray.800" pb="4" borderRadius={8}>
             <C.Text fontSize="lg" mb="4">
               Taxa de abertura
             </C.Text>
