@@ -90,7 +90,7 @@ export default function CreateUser(): React.ReactElement {
               <C.Button colorScheme="whiteAlpha">Cancelar</C.Button>
               <C.Button
                 type="submit"
-                colorScheme="pink"
+                colorScheme="green"
                 isLoading={formState.isSubmitting}
               >
                 Salvar

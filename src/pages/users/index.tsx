@@ -22,7 +22,7 @@ export default function UserList(): React.ReactElement {
             <C.Button
               as="a"
               size="sm"
-              colorScheme="pink"
+              colorScheme="green"
               leftIcon={<C.Icon as={RiAddLine} />}
               fontSize="20"
             >
@@ -33,7 +33,7 @@ export default function UserList(): React.ReactElement {
             <C.Thead>
               <C.Tr>
                 <C.Th px={['4', '4', '6']} color="gray.300" widht="8">
-                  <C.Checkbox colorScheme="pink" />
+                  <C.Checkbox colorScheme="green" />
                 </C.Th>
                 <C.Th>Usuário</C.Th>
                 {isWideVersion && <C.Th>Data de cadastro</C.Th>}
@@ -43,7 +43,7 @@ export default function UserList(): React.ReactElement {
             <C.Tbody>
               <C.Tr>
                 <C.Td px={['4', '4', '6']}>
-                  <C.Checkbox colorScheme="pink" />
+                  <C.Checkbox colorScheme="green" />
                 </C.Td>
                 <C.Td>
                   <C.Box>
@@ -59,7 +59,7 @@ export default function UserList(): React.ReactElement {
                     <C.Button
                       as="a"
                       size="sm"
-                      colorScheme="pink"
+                      colorScheme="green"
                       leftIcon={<C.Icon as={RiPencilLine} />}
                       fontSize="16"
                     >

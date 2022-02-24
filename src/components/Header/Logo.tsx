@@ -9,7 +9,7 @@ export default function Logo(): React.ReactElement {
       w="64"
     >
       dashgo
-      <C.Text as="span" ml="1" color="pink.500">
+      <C.Text as="span" ml="1" color="green.500">
         .
       </C.Text>
     </C.Text>

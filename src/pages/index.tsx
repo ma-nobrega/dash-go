@@ -58,7 +58,7 @@ export default function SignIn(): React.ReactElement {
         <Button
           isLoading={formState.isSubmitting}
           mt="6"
-          colorScheme="pink"
+          colorScheme="green"
           type="submit"
           size="lg"
         >
