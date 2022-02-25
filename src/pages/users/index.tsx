@@ -1,4 +1,5 @@
 import * as C from '@chakra-ui/react';
+import { useEffect } from 'react';
 import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 import Header from '../../components/Header';
 import Pagination from '../../components/Pagination';
@@ -9,6 +10,12 @@ export default function UserList(): React.ReactElement {
     base: false,
     lg: true,
   });
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/users')
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }, []);
   return (
     <C.Box>
       <Header />
