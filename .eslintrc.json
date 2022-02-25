@@ -36,6 +36,7 @@
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
@@ -56,6 +57,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/require-default-props": "off",
+    "no-nested-ternary": "off",
     "react/jsx-filename-extension": [
       1,
       {

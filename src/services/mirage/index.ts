@@ -22,14 +22,14 @@ export function makeServer(): React.ReactNode {
         email() {
           return faker.internet.email().toLowerCase();
         },
-        createAt() {
+        createdAt() {
           return faker.date.recent(10);
         },
       }),
     },
 
     seeds(serv) {
-      serv.createList('user', 200);
+      serv.createList('user', 10);
     },
 
     routes() {
