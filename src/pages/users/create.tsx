@@ -2,6 +2,7 @@ import * as C from '@chakra-ui/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Link from 'next/link';
 import Sidebar from '../../components/Sidebar';
 import Header from '../../components/Header';
 import { Input } from '../../components/Form/input';
@@ -87,7 +88,11 @@ export default function CreateUser(): React.ReactElement {
           </C.VStack>
           <C.Flex mt="8" justify="flex-end">
             <C.HStack spacing="4">
-              <C.Button colorScheme="whiteAlpha">Cancelar</C.Button>
+              <Link href="/users" passHref>
+                <C.Button as="a" colorScheme="whiteAlpha">
+                  Cancelar
+                </C.Button>
+              </Link>
               <C.Button
                 type="submit"
                 colorScheme="green"

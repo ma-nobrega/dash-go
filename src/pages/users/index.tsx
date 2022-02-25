@@ -1,6 +1,7 @@
 import * as C from '@chakra-ui/react';
 import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 import { useQuery } from 'react-query';
+import Link from 'next/link';
 import Header from '../../components/Header';
 import Pagination from '../../components/Pagination';
 import Sidebar from '../../components/Sidebar';
@@ -39,15 +40,17 @@ export default function UserList(): React.ReactElement {
             <C.Heading size="lg" fontWeight="normal">
               Usuários
             </C.Heading>
-            <C.Button
-              as="a"
-              size="sm"
-              colorScheme="green"
-              leftIcon={<C.Icon as={RiAddLine} />}
-              fontSize="20"
-            >
-              Criar novo
-            </C.Button>
+            <Link href="/users/create" passHref>
+              <C.Button
+                as="a"
+                size="sm"
+                colorScheme="green"
+                leftIcon={<C.Icon as={RiAddLine} />}
+                fontSize="20"
+              >
+                Criar novo
+              </C.Button>
+            </Link>
           </C.Flex>
           {isLoading ? (
             <C.Flex justify="center">
