@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import * as C from '@chakra-ui/react';
 import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 import { useQuery } from 'react-query';
@@ -5,14 +6,14 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import Pagination from '../../components/Pagination';
 import Sidebar from '../../components/Sidebar';
+import { api } from '../../services/api';
 
 export default function UserList(): React.ReactElement {
   const { data, isLoading, isFetching, error } = useQuery(
     'users',
     async () => {
-      const response = await fetch('http://localhost:3000/api/users');
-      const dataJson = await response.json();
-      const users = dataJson.users.map(user => {
+      const { data } = await api.get('/users');
+      const users = data.users.map(user => {
         return {
           id: user.id,
           name: user.name,
