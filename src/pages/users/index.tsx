@@ -7,7 +7,7 @@ import Pagination from '../../components/Pagination';
 import Sidebar from '../../components/Sidebar';
 
 export default function UserList(): React.ReactElement {
-  const { data, isLoading, error } = useQuery(
+  const { data, isLoading, isFetching, error } = useQuery(
     'users',
     async () => {
       const response = await fetch('http://localhost:3000/api/users');
@@ -45,6 +45,9 @@ export default function UserList(): React.ReactElement {
           <C.Flex mb="8" justify="space-between" align="center">
             <C.Heading size="lg" fontWeight="normal">
               Usuários
+              {!isLoading && isFetching && (
+                <C.Spinner size="sm" color="gray.500" ml="4" />
+              )}
             </C.Heading>
             <Link href="/users/create" passHref>
               <C.Button
