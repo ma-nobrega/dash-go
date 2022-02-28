@@ -10,6 +10,7 @@ type User = {
 
 export function makeServer(): React.ReactNode {
   const server = createServer({
+    serializers: {},
     models: {
       user: Model.extend<Partial<User>>({}),
     },
@@ -52,6 +53,7 @@ export function makeServer(): React.ReactNode {
           { users }
         );
       });
+      this.get('/users/:id');
       this.post('/users');
       this.namespace = '';
       this.passthrough();
