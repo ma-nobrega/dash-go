@@ -1,4 +1,10 @@
-import { createServer, Factory, Model, Response } from 'miragejs';
+import {
+  ActiveModelSerializer,
+  createServer,
+  Factory,
+  Model,
+  Response,
+} from 'miragejs';
 import faker from 'faker';
 import React from 'react';
 
@@ -10,7 +16,9 @@ type User = {
 
 export function makeServer(): React.ReactNode {
   const server = createServer({
-    serializers: {},
+    serializers: {
+      application: ActiveModelSerializer,
+    },
     models: {
       user: Model.extend<Partial<User>>({}),
     },
@@ -41,7 +49,7 @@ export function makeServer(): React.ReactNode {
         const total = schema.all('user').length;
         const pageStart = (Number(page) - 1) * Number(per_page);
         const pageEnd = pageStart + Number(per_page);
-        const users = this.serialize(schema.all('user')).users.slice(
+        const users = this.serialize(schema.all('user')).slice(
           pageStart,
           pageEnd
         );
