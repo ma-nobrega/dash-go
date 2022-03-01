@@ -21,7 +21,6 @@ export default function SignIn(): React.ReactElement {
 
   const handleSignIn: SubmitHandler<SignInFormData> = async data => {
     await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log(data);
   };
 
   return (

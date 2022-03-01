@@ -14,7 +14,7 @@ type User = {
   created_at: string;
 };
 
-export function makeServer(): React.ReactNode {
+export const makeServer = (): React.ReactNode => {
   const server = createServer({
     serializers: {
       application: ActiveModelSerializer,
@@ -25,8 +25,8 @@ export function makeServer(): React.ReactNode {
 
     factories: {
       user: Factory.extend({
-        name(i) {
-          return `User ${1 + i}`;
+        name() {
+          return `${faker.name.firstName()} ${faker.name.lastName()}`;
         },
         email() {
           return faker.internet.email().toLowerCase();
@@ -49,17 +49,14 @@ export function makeServer(): React.ReactNode {
         const total = schema.all('user').length;
         const pageStart = (Number(page) - 1) * Number(per_page);
         const pageEnd = pageStart + Number(per_page);
-        const users = this.serialize(schema.all('user')).slice(
-          pageStart,
-          pageEnd
-        );
-        return new Response(
-          200,
-          {
-            'x-total-count': String(total),
-          },
-          { users }
-        );
+        const users = this.serialize(schema.all('user'))
+          .users.sort(
+            (a: User, b: User) =>
+              new Date(b.created_at).getTime() -
+              new Date(a.created_at).getTime()
+          )
+          .slice(pageStart, pageEnd);
+        return new Response(200, { 'x-total-count': String(total) }, { users });
       });
       this.get('/users/:id');
       this.post('/users');
@@ -68,4 +65,4 @@ export function makeServer(): React.ReactNode {
     },
   });
   return server;
-}
+};

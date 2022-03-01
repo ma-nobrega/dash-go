@@ -19,7 +19,7 @@ export default function UserList(): React.ReactElement {
     lg: true,
   });
 
-  async function handlePrefetchUser(userId: string) {
+  const handlePrefetchUser = async (userId: string): Promise<void> => {
     await queryClient.prefetchQuery(
       ['user', userId],
       async () => {
@@ -30,7 +30,7 @@ export default function UserList(): React.ReactElement {
         staleTime: 1000 * 60 * 10,
       }
     );
-  }
+  };
 
   return (
     <C.Box>
@@ -98,7 +98,7 @@ export default function UserList(): React.ReactElement {
                             </C.Text>
                           </C.Box>
                         </C.Td>
-                        {isWideVersion && <C.Td>{user.createdAt}</C.Td>}
+                        {isWideVersion && <C.Td>{user.created_at}</C.Td>}
                         {isWideVersion && (
                           <C.Td>
                             <C.Button
