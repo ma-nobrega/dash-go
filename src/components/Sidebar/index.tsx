@@ -1,5 +1,5 @@
 import * as C from '@chakra-ui/react';
-import { useSidebarDrawer } from '../../contexts/SidebarDrawerContent';
+import { useSidebarDrawer } from '../../contexts/SidebarDrawerContext';
 import SidebarNav from './SidebarNav';
 
 export default function Sidebar(): React.ReactElement {
